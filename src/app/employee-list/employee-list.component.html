@@ -1,0 +1,44 @@
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Employee List</h1>
+  <button
+    (click)="goToCreate()"
+    class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 mb-4"
+  >
+    Add Employee
+  </button>
+  @if (employees.length > 0) {
+  <table class="table-auto w-full">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">Name</th>
+        <th class="px-4 py-2">Position</th>
+        <th class="px-4 py-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (employee of employees; track employees) {
+      <tr>
+        <td class="border px-4 py-2">{{ employee.name }}</td>
+        <td class="border px-4 py-2">{{ employee.position }}</td>
+        <td class="border px-4 py-2">
+          <button
+            (click)="editEmployee(employee.id)"
+            class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 mr-2"
+          >
+            Edit
+          </button>
+          <button
+            (click)="deleteEmployee(employee.id)"
+            class="bg-red-500 text-white p-2 rounded-md hover:bg-red-700"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @else {
+  <p>No employees found.</p>
+  }
+</div>

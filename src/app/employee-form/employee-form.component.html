@@ -1,0 +1,29 @@
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold mb-3 underline">
+    {{ isEdit ? "Edit" : "Create" }} Employee
+  </h1>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Name</label>
+      <input
+        formControlName="name"
+        type="text"
+        class="border border-gray-300 p-2 rounded-md mb-3"
+      />
+    </div>
+    <div>
+      <label>Position</label>
+      <input
+        formControlName="position"
+        type="text"
+        class="border border-gray-300 p-2 rounded-md mb-4"
+      />
+    </div>
+    <button
+      type="submit"
+      class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700"
+    >
+      {{ isEdit ? "Update" : "Create" }}
+    </button>
+  </form>
+</div>
